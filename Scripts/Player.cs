@@ -20,6 +20,15 @@ public partial class Player : XROrigin3D
 	public Node RightMovementTurn { get; private set; }
 	public Node RightMovementSprint { get; private set; }
 
+	// Konfiguracja Sprintu
+	[Export]
+	public float WalkSpeed { get; set; } = 3.0f;
+	[Export]
+	public float SprintSpeed { get; set; } = 6.0f;
+	
+	// Referencja do ruchu (GDScript)
+	public Node LeftMovementDirect { get; private set; }
+
 	public override void _Ready()
 	{
 		// 1. Inicjalizacja podstawowych węzłów VR
@@ -33,16 +42,36 @@ public partial class Player : XROrigin3D
 		// 3. Pobieranie funkcji (GDScript) dla Lewego Kontrolera
 		// Używamy GetNodeOrNull na wypadek gdybyś zmienił strukturę w edytorze
 		LeftFunctionPickup = LeftController.GetNodeOrNull("FunctionPickup");
+		LeftMovementDirect = LeftController.GetNodeOrNull("MovementDirect");
 
 		// 4. Pobieranie funkcji (GDScript) dla Prawego Kontrolera
 		RightFunctionPickup = RightController.GetNodeOrNull("FunctionPickup");
 		RightMovementTurn = RightController.GetNodeOrNull("MovementTurn");
 		RightMovementSprint = RightController.GetNodeOrNull("MovementSprint");
 
+		// Wyłączamy wbudowane działanie MovementSprint, ponieważ obsługujemy sprint manualnie przez Input Map "sprint"
+		if (RightMovementSprint != null)
+		{
+			RightMovementSprint.Set("enabled", false);
+		}
+
 		// Opcjonalnie: Podłączanie sygnałów (przykład)
 		ConnectSignals();
 		
 		GD.Print("Player.cs: Zainicjalizowano komponenty XR Tools.");
+	}
+
+	public override void _PhysicsProcess(double delta)
+	{
+		// Obsługa Sprintu (modyfikacja MovementDirect na lewym kontrolerze)
+		if (LeftMovementDirect != null)
+		{
+			// Sprawdzamy input zdefiniowany w Project Settings -> Input Map -> "sprint"
+			float targetSpeed = Input.IsActionPressed("sprint") ? SprintSpeed : WalkSpeed;
+			
+			// Ustawiamy prędkość w skrypcie GDScript
+			LeftMovementDirect.Set("max_speed", targetSpeed);
+		}
 	}
 
 	private void ConnectSignals()

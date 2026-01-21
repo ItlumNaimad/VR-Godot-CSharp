@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5k5230q7roa4"]
+[gd_scene load_steps=8 format=3 uid="uid://b5k5230q7roa4"]
 
 [ext_resource type="Script" uid="uid://cp3x37j0jj3bn" path="res://Scripts/Player.cs" id="1_fkybt"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_vgqql"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="3_fkybt"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_x3wgy"]
 [ext_resource type="PackedScene" uid="uid://drs4eeq721ojn" path="res://addons/godot-xr-tools/functions/movement_sprint.tscn" id="4_x3wgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvnsp"]
@@ -23,13 +24,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.585375, 0)
 tracker = &"left_hand"
 pose = &"aim"
 
-[node name="FunctionPickup" parent="LeftController" instance=ExtResource("2_vgqql")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, -0.05, 0.1)
+[node name="MovementDirect" parent="LeftController" instance=ExtResource("3_x3wgy")]
+strafe = true
+
+[node name="MovementSprint" parent="LeftController" instance=ExtResource("4_x3wgy")]
 
 [node name="RightController" type="XRController3D" parent="."]
 tracker = &"right_hand"
 pose = &"aim"
 
-[node name="MovementSprint" parent="RightController" instance=ExtResource("4_x3wgy")]
-
 [node name="MovementTurn" parent="RightController" instance=ExtResource("3_fkybt")]
+
+[node name="FunctionPickup" parent="RightController" instance=ExtResource("2_vgqql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, -0.05, 0.1)

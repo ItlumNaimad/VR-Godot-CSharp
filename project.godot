@@ -12,16 +12,32 @@ config_version=5
 
 config/name="Inżynierka"
 run/main_scene="uid://dl1idc46uex2j"
-config/features=PackedStringArray("4.4", "Mobile")
+config/features=PackedStringArray("4.4", "C#", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
+XRToolsRumbleManager="*res://addons/godot-xr-tools/rumble/rumble_manager.gd"
 
 [dotnet]
 
 project/assembly_name="Inżynierka"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/A2J/plugin.cfg", "res://addons/godot-xr-tools/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false
+
+[input]
+
+sprint={
+"deadzone": 0.2,
+"events": []
+}
 
 [rendering]
 

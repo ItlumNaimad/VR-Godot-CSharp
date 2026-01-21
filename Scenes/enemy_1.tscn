@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://qox3aox2g6ry"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_op0mk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_op0mk"]
+
+[node name="Enemy1" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_op0mk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("CapsuleMesh_op0mk")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = 9.143
+unit_size = 12.85
+max_distance = 11.55
