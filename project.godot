@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Inżynierka"
-run/main_scene="uid://dl1idc46uex2j"
+run/main_scene="uid://0tackogf0a4x"
 config/features=PackedStringArray("4.4", "C#", "Mobile")
 config/icon="res://icon.svg"
 
@@ -45,4 +45,5 @@ renderer/rendering_method="mobile"
 
 [xr]
 
+openxr/enabled=true
 shaders/enabled=true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5k5230q7roa4"]
+[gd_scene load_steps=9 format=3 uid="uid://b5k5230q7roa4"]
 
 [ext_resource type="Script" uid="uid://cp3x37j0jj3bn" path="res://Scripts/Player.cs" id="1_fkybt"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_vgqql"]
+[ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="3_3smsa"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="3_fkybt"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_x3wgy"]
 [ext_resource type="PackedScene" uid="uid://drs4eeq721ojn" path="res://addons/godot-xr-tools/functions/movement_sprint.tscn" id="4_x3wgy"]
@@ -19,6 +20,8 @@ shape = SubResource("CapsuleShape3D_cvnsp")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.585375, 0)
+
+[node name="VRCommonShaderCache" parent="XRCamera3D" instance=ExtResource("3_3smsa")]
 
 [node name="LeftController" type="XRController3D" parent="."]
 tracker = &"left_hand"

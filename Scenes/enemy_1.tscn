@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://qox3aox2g6ry"]
+[gd_scene load_steps=4 format=3 uid="uid://d2gvhj54fqi8h"]
+
+[ext_resource type="AudioStream" uid="uid://ngf7i3oqwc0i" path="res://assets/ballora.mp3" id="1_jwqgc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_op0mk"]
 
@@ -15,6 +17,7 @@ shape = SubResource("CapsuleShape3D_op0mk")
 mesh = SubResource("CapsuleMesh_op0mk")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_jwqgc")
 volume_db = 9.143
 unit_size = 12.85
 max_distance = 11.55
