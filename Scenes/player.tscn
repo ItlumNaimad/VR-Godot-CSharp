@@ -28,6 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.585375, 0)
 [node name="LeftController" type="XRController3D" parent="."]
 tracker = &"left_hand"
 pose = &"aim"
+show_when_tracked = true
 
 [node name="MovementDirect" parent="LeftController" instance=ExtResource("3_x3wgy")]
 strafe = true

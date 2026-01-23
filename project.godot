@@ -87,6 +87,12 @@ sprint={
 "deadzone": 0.2,
 "events": []
 }
+primary={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":7,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":8,"pressure":0.0,"pressed":false,"script":null)
+]
+}
 
 [rendering]
 
@@ -95,5 +101,4 @@ renderer/rendering_method="mobile"
 [xr]
 
 openxr/enabled=true
-openxr/default_action_map="res://openxr_action_map.tres"
 shaders/enabled=true
