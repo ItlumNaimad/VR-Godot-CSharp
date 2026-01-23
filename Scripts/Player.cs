@@ -47,12 +47,14 @@ public partial class Player : XROrigin3D
 		// 4. Pobieranie funkcji (GDScript) dla Prawego Kontrolera
 		RightFunctionPickup = RightController.GetNodeOrNull("FunctionPickup");
 		RightMovementTurn = RightController.GetNodeOrNull("MovementTurn");
-		RightMovementSprint = RightController.GetNodeOrNull("MovementSprint");
+		
+		// MovementSprint znajduje się na lewym kontrolerze w scenie player.tscn
+		Node leftMovementSprint = LeftController.GetNodeOrNull("MovementSprint");
 
 		// Wyłączamy wbudowane działanie MovementSprint, ponieważ obsługujemy sprint manualnie przez Input Map "sprint"
-		if (RightMovementSprint != null)
+		if (leftMovementSprint != null)
 		{
-			RightMovementSprint.Set("enabled", false);
+			leftMovementSprint.Set("enabled", false);
 		}
 
 		// Opcjonalnie: Podłączanie sygnałów (przykład)
