@@ -27,7 +27,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.585375, 0)
 
 [node name="LeftController" type="XRController3D" parent="."]
 tracker = &"left_hand"
-pose = &"aim"
 show_when_tracked = true
 
 [node name="MovementDirect" parent="LeftController" instance=ExtResource("3_x3wgy")]
@@ -40,12 +39,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164867, 0)
 
 [node name="RightController" type="XRController3D" parent="."]
 tracker = &"right_hand"
-pose = &"aim"
 
 [node name="MovementTurn" parent="RightController" instance=ExtResource("3_fkybt")]
 
 [node name="FunctionPickup" parent="RightController" instance=ExtResource("2_vgqql")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, -0.05, 0.1)
 
 [node name="RightHand" parent="RightController" instance=ExtResource("9_tx1dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49397, 0.137467, 0)

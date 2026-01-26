@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2gvhj54fqi8h"]
+[gd_scene load_steps=5 format=3 uid="uid://d2gvhj54fqi8h"]
 
+[ext_resource type="Script" path="res://Scripts/EnemyAI.cs" id="1_ai_script"]
 [ext_resource type="AudioStream" uid="uid://ngf7i3oqwc0i" path="res://assets/ballora.mp3" id="1_jwqgc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_op0mk"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_op0mk"]
 
-[node name="Enemy1" type="Node3D"]
+[node name="Enemy1" type="CharacterBody3D"]
+script = ExtResource("1_ai_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_op0mk")
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -21,3 +26,5 @@ stream = ExtResource("1_jwqgc")
 volume_db = 9.143
 unit_size = 12.85
 max_distance = 11.55
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
