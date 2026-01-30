@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Inżynierka"
 run/main_scene="uid://0tackogf0a4x"
-config/features=PackedStringArray("4.4", "C#", "Mobile")
+config/features=PackedStringArray("4.5", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -94,6 +94,13 @@ primary={
 ]
 }
 
+[input_devices]
+
+sensors/enable_accelerometer=true
+sensors/enable_gravity=true
+sensors/enable_gyroscope=true
+sensors/enable_magnetometer=true
+
 [rendering]
 
 renderer/rendering_method="mobile"
@@ -101,4 +108,5 @@ renderer/rendering_method="mobile"
 [xr]
 
 openxr/enabled=true
+openxr/extensions/hand_tracking=true
 shaders/enabled=true

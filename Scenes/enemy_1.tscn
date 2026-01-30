@@ -1,14 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://d2gvhj54fqi8h"]
 
-[ext_resource type="Script" path="res://Scripts/EnemyAI.cs" id="1_ai_script"]
+[ext_resource type="Script" uid="uid://b47o6v803hl0i" path="res://Scripts/EnemyAI.cs" id="1_ai_script"]
 [ext_resource type="AudioStream" uid="uid://ngf7i3oqwc0i" path="res://assets/ballora.mp3" id="1_jwqgc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_op0mk"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_op0mk"]
 
-[node name="Enemy1" type="CharacterBody3D"]
+[node name="Enemy1" type="CharacterBody3D" node_paths=PackedStringArray("PatrolPoints")]
 script = ExtResource("1_ai_script")
+PatrolPoints = []
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_op0mk")

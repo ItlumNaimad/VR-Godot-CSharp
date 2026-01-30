@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://qbmx03iibuuu"]
+[gd_scene load_steps=4 format=3 uid="uid://qbmx03iibuuu"]
 
 [ext_resource type="Script" uid="uid://177gygw2xqqu" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_dpium"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="3_ltyn0"]
 
 [node name="SceneBase" type="Node3D"]
 script = ExtResource("1")
@@ -14,9 +16,19 @@ far = 300.0
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
-pose = &"aim"
+pose = &"grip"
+show_when_tracked = true
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("2_dpium")]
+transform = Transform3D(0.99981, 0, 0.0194766, 0, 1, 0, -0.0194766, 0, 0.99981, 0, -0.620521, 0)
+hand_offset_mode = 2
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.45712, -0.5)
 tracker = &"right_hand"
-pose = &"aim"
+pose = &"grip"
+show_when_tracked = true
+
+[node name="RightHand2" parent="XROrigin3D/RightHand" instance=ExtResource("3_ltyn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.894053, 0.5)
+hand_offset_mode = 2
